@@ -14,6 +14,10 @@ public class Todo {
     private String text;
     private Boolean done = false;
 
+    public Todo(String text) {
+        this.text = text;
+    }
+
     public Todo() {
 
     }
