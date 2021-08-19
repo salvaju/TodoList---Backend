@@ -42,6 +42,10 @@ public class TodoService {
             todo.setDone(updatedTodoInfo.getDone());
         }
 
+        if (updatedTodoInfo.getText() != null) {
+            todo.setText(updatedTodoInfo.getText());
+        }
+
         return todo;
     }
 
