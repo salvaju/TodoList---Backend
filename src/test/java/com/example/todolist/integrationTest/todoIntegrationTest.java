@@ -3,6 +3,7 @@ package com.example.todolist.integrationTest;
 import com.example.todolist.model.Todo;
 import com.example.todolist.repository.TodoRepository;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -26,6 +27,11 @@ public class todoIntegrationTest {
 
     @AfterEach
     void tearDown() {
+        todoRepository.deleteAll();
+    }
+
+    @BeforeEach
+    public void tearDownBefore() {
         todoRepository.deleteAll();
     }
 
