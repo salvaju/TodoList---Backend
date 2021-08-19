@@ -89,4 +89,20 @@ public class todoIntegrationTest {
 
     }
 
+    @Test
+    void should_delete_todo_when_call_delete_todo_api() throws Exception {
+        //given
+        final Todo todo = new Todo("Buy Iphone15Pro");
+        todoRepository.save(todo);
+
+        //when
+
+        //then
+
+        int id = todo.getId();
+
+        mockMvc.perform(MockMvcRequestBuilders.delete("/todos/{id}", id))
+                .andExpect(status().isOk());
+    }
+
 }
