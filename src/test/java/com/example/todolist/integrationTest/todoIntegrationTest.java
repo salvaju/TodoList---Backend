@@ -68,4 +68,25 @@ public class todoIntegrationTest {
 
     }
 
+    @Test
+    void should_add_todo_when_call_add_todo_api() throws Exception {
+
+        //given
+        String todo = "{\n" +
+                "        \"text\": \"Buy fruits\",\n" +
+                "        \"done\": false\n" +
+                "}";
+
+        //when
+
+        //then
+        mockMvc.perform(MockMvcRequestBuilders.post("/todos")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(todo))
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.text").value("Buy fruits"))
+                .andExpect(jsonPath("$.done").value(false));
+
+    }
+
 }
